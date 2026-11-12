@@ -293,11 +293,8 @@ body.editing li .ed,body.editing p .ed{display:inline}
 ]},
 "vid":[],
 "hd":[
- {"n":"Base HRM","u":"","note":"Hồ sơ nhân sự, hợp đồng, thuế & bảo hiểm, quỹ phép"},
- {"n":"Checkin · Timeoff","u":"","note":"Chấm công GPS, đơn nghỉ phép, OT"},
- {"n":"Base Service","u":"","note":"Các quy trình Đấu thầu, Mua hàng, Thực hiện dự án, Thanh toán, Bảo hành"},
- {"n":"Wework · Sign","u":"","note":"Giao việc, báo cáo, trình ký số"},
- {"n":"AI Agent","u":"","note":"Vận hành AI Agent trong quy trình"}
+ {"n":"Dành cho Quản trị","u":"https://dalytech-huongdanthietlapbase.vercel.app/","note":"Hướng dẫn thiết lập hệ thống Base dành cho đội quản trị của Daly."},
+ {"n":"Dành cho người dùng cuối","u":"","note":"Hướng dẫn thao tác hằng ngày trên Base dành cho toàn bộ nhân viên."}
 ]
 }
 </script>
@@ -450,10 +447,10 @@ function docs(){
   var btn=v&&v.u?'<a class="btn" href="'+esc(v.u)+'" target="_blank" rel="noopener">Xem video</a>':'<span class="btn off">Link sẽ được bổ sung</span>';
   return '<div class="vc"><div class="t">'+esc(s.no)+' · '+esc(s.title)+'</div><div><span class="chip '+(s.done?'g':'n')+'">'+(s.done?'Đã hoàn thành':'Chưa tổ chức')+'</span></div>'+btn+(EDIT?'<input class="lk" placeholder="Dán link Drive video" data-p="vid.'+vi+'.u" value="'+esc(v?v.u:'')+'">':'')+'</div>';}).join('');
  var tabs=D.hd.map(function(h,i){return '<button data-tab="'+i+'" class="'+(i===0?'on':'')+'">'+esc(h.n)+'</button>';}).join('');
- var panes=D.hd.map(function(h,i){return '<div class="box hdp" data-pane="'+i+'" '+(i?'style="display:none"':'')+'><span class="chip o">Đang cập nhật</span><h3 style="margin-top:8px">HDSD · '+E('hd.'+i+'.n')+'</h3><p>'+E('hd.'+i+'.note')+'</p><div style="margin-top:12px">'+(h.u?'<a class="btn" href="'+esc(h.u)+'" target="_blank" rel="noopener">Mở HDSD (Word)</a>':'<span class="btn off">Link sẽ được bổ sung</span>')+'</div>'+(EDIT?'<input class="lk" style="margin-top:8px" placeholder="Dán link Drive HDSD" data-p="hd.'+i+'.u" value="'+esc(h.u)+'">':'')+'</div>';}).join('');
- return '<section class="blk" id="s7"><h2><span class="no">VII</span> Tài liệu</h2><p class="lead">Video record các buổi làm việc và hướng dẫn sử dụng (bản Word) theo từng ứng dụng.</p>'
+ var panes=D.hd.map(function(h,i){return '<div class="box hdp" data-pane="'+i+'" '+(i?'style="display:none"':'')+'><span class="chip '+(h.u?'g':'o')+'">'+(h.u?'Đã có':'Đang cập nhật')+'</span><h3 style="margin-top:8px">Hướng dẫn · '+E('hd.'+i+'.n')+'</h3><p>'+E('hd.'+i+'.note')+'</p><div style="margin-top:12px">'+(h.u?'<a class="btn" href="'+esc(h.u)+'" target="_blank" rel="noopener">Mở hướng dẫn</a>':'<span class="btn off">Link sẽ được bổ sung</span>')+'</div>'+(EDIT?'<input class="lk" style="margin-top:8px" placeholder="Dán link hướng dẫn" data-p="hd.'+i+'.u" value="'+esc(h.u)+'">':'')+'</div>';}).join('');
+ return '<section class="blk" id="s7"><h2><span class="no">VII</span> Tài liệu</h2><p class="lead">Video record các buổi làm việc và hướng dẫn sử dụng Base cho từng nhóm đối tượng.</p>'
  +'<h4 class="sh" style="margin-top:0">Video record các buổi</h4><div class="vcards">'+vc+'</div>'
- +'<h4 class="sh">Hướng dẫn sử dụng (HDSD)</h4><div class="tabs">'+tabs+'</div>'+panes+'</section>';
+ +'<h4 class="sh">Hướng dẫn sử dụng</h4><div class="tabs">'+tabs+'</div>'+panes+'</section>';
 }
 var SECS=['Tổng quan','Mục tiêu & phạm vi','Ban dự án','Lộ trình 5 bước','Các buổi làm việc','Hiện trạng','Lịch & bước tiếp','Tài liệu'];
 function render(){

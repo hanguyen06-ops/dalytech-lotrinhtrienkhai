@@ -1,0 +1,1 @@
+{ "name": "lo-trinh-trien-khai", "version": "1.0.0", "private": true, "dependencies": { "@vercel/functions": "^2.0.0" } }
